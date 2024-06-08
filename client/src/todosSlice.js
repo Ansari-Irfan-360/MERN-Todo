@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const BACKEND_URL = "http://localhost:5000"
+const BACKEND_URL = "https://todo-360.onrender.com"
 
 export const fetchTodos = createAsyncThunk('todos/fetchTodos', async () => {
     const response = await axios.get(`${BACKEND_URL}/todos`);
