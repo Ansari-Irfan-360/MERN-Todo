@@ -38,3 +38,7 @@ exports.deleteTodo = async (req, res) => {
         res.status(500).json({ error: 'Server error' });
     }
 };
+
+exports.checkServer = async (req, res) => {
+    response.status(200).json({msg:"Server is running"});
+}
