@@ -40,5 +40,5 @@ exports.deleteTodo = async (req, res) => {
 };
 
 exports.checkServer = async (req, res) => {
-    response.status(200).json({msg:"Server is running"});
+    res.status(200).json({msg:"Server is running"});
 }
