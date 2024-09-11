@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const { serverCheck } = require('poll-server-check');
+
 require('dotenv').config();
 
 const app = express();
@@ -19,5 +21,6 @@ mongoose.connect(process.env.MONGODB_URL, {
 .catch(err => console.log('MongoDB not connected ',err));
 
 app.use('/todos', todoRoutes);
+serverCheck(app);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

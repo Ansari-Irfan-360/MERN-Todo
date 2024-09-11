@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTodos, addTodo, updateTodo, deleteTodo } from './todosSlice';
+import { clientCheck } from 'poll-server-check';
 
+const BACKEND_URL = "https://todo-360.onrender.com"
 
 function App() {
     const dispatch = useDispatch();
     const todos = useSelector(state => state.todos.items);
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
+
+    useEffect(() => {
+        clientCheck(BACKEND_URL);
+    }, []);
 
     useEffect(() => {
         dispatch(fetchTodos());
